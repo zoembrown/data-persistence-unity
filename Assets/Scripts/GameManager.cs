@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        m_GameOver = true;
-        GameOverText.SetActive(true);
+        SceneManager.LoadScene(2);
     }
 }
