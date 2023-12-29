@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private bool m_Started = false;
     private int m_Points;
 
-    private bool m_GameOver = false;
+    public bool m_GameOver = false;
 
 
     // Start is called before the first frame update
@@ -55,10 +55,8 @@ public class GameManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+            MainManager.Instance.currentScore = m_Points;
+            GameOver();
         }
     }
 
@@ -68,7 +66,7 @@ public class GameManager : MonoBehaviour
         ScoreText.text = $"Score : {m_Points}";
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         SceneManager.LoadScene(2);
     }

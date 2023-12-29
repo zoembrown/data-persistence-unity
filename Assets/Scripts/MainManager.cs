@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
-    public MainManager Instance;
+    public static MainManager Instance;
 
     public string currentPlayerName;
     public int currentScore;
@@ -20,9 +20,11 @@ public class MainManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // A class containing the data that needs to be saved

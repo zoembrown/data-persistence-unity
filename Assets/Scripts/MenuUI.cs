@@ -11,7 +11,8 @@ using UnityEditor;
 
 public class MenuUI : MonoBehaviour
 {
-    public TextMeshProUGUI playerName;
+    [SerializeField] private TMP_InputField playerName;
+    [SerializeField] private TextMeshProUGUI errorText;
 
     // A method to close the program
     public void CloseGame()
@@ -26,6 +27,18 @@ public class MenuUI : MonoBehaviour
     // A method to start the game
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        // Do not start the game until the user has enetered their name.
+        string name = playerName.text.Trim();
+
+        if (name.Equals(""))
+        {
+            errorText.gameObject.SetActive(true);
+        } else
+        {
+            //MainManager.Instance.currentPlayerName = name;
+            MainManager.Instance.currentPlayerName = name;
+            SceneManager.LoadScene(1);
+        }
+        
     }
 }
