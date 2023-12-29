@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 630014727}
   errorText: {fileID: 447939779}
+  highScoreText: {fileID: 285898936}
 --- !u!1 &447939777
 GameObject:
   m_ObjectHideFlags: 0

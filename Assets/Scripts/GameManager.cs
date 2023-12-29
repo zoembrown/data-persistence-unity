@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
-    public GameObject GameOverText;
+    public Text HighScoreText;
 
     private bool m_Started = false;
     private int m_Points;
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HighScoreText.text = $"High Score: {MainManager.Instance.highScoringPlayerName}: {MainManager.Instance.highScore}";
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
 

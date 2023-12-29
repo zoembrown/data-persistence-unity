@@ -13,7 +13,12 @@ public class MenuUI : MonoBehaviour
 {
     [SerializeField] private TMP_InputField playerName;
     [SerializeField] private TextMeshProUGUI errorText;
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
+    public void Start()
+    {
+        highScoreText.text = $"High Score\n{MainManager.Instance.highScoringPlayerName}: {MainManager.Instance.highScore}";
+    }
     // A method to close the program
     public void CloseGame()
     {
